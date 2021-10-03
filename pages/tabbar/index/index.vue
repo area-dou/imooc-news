@@ -3,7 +3,8 @@
 	<view class="content">
 		<!-- 自定义导航栏组件 -->
 		<navbar></navbar>
-		<view v-for="item in 100">{{item}}this is content</view>
+		<tab></tab>
+
 	</view>
 </template>
 
