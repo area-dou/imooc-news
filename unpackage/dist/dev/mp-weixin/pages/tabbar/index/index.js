@@ -169,7 +169,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
-//
 
 // easycom将其精简为一步。 局部引入
 // 只要组件安装在项目的components目录下，并符合components/组件名称/组件名称.vue目录结构。
@@ -180,12 +179,31 @@ var _default = {
   // },
   data: function data() {
     return {
-      title: 'Hello' };
+      title: 'Hello',
+      tabList: [] };
 
   },
   onLoad: function onLoad() {
+    this.getLabel();
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    tabs: function tabs(data, index) {
+      console.log(data, index);
+    },
+    getLabel: function getLabel() {var _this = this;
+      // 调用云函数方法
+      console.log(this.$api);
+      this.$api.get_label({
+        name: 'get_label' }).
+      then(function (res) {var
+
+        data =
+        res.data;
+        _this.tabList = data;
+        // console.log(this.tabList)
+      });
+
+    } } };exports.default = _default;
 
 /***/ })
 ],[[12,"common/runtime","common/vendor"]]]);

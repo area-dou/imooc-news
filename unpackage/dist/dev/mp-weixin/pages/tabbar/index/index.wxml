@@ -1,1 +1,1 @@
-<view class="content"><navbar vue-id="f8c7e56e-1" bind:__l="__l"></navbar><tab vue-id="f8c7e56e-2" bind:__l="__l"></tab></view>
+<view class="content"><navbar vue-id="f8c7e56e-1" bind:__l="__l"></navbar><tab vue-id="f8c7e56e-2" list="{{tabList}}" data-event-opts="{{[['^tab',[['tabs']]]]}}" bind:tab="__e" bind:__l="__l"></tab></view>

@@ -40,18 +40,18 @@
 			// 设置状态栏高度
 			this.statusBarHeight = info.statusBarHeight
 			this.windowWidth = info.windowWidth
-			console.log(info)
+			// console.log(info)
 			
 			// h5 app mp-alipay
 			// #ifndef H5 || APP-PLUS || MP-ALIPAY
 			// 获取胶囊的位置
 			const menuButtonInfo = uni.getMenuButtonBoundingClientRect()
-			console.log(menuButtonInfo)
+			// console.log(menuButtonInfo)
 			// 导航栏高度 = (胶囊底部高度 - 状态栏的高度) + (胶囊顶部高度 - 状态栏的高度)
 			this.navBarHeight = (menuButtonInfo.bottom - info.statusBarHeight) + (menuButtonInfo.top - info.statusBarHeight)
 			this.windowWidth = menuButtonInfo.left
 			this.windowHeight = menuButtonInfo.bottom - menuButtonInfo.top
-			console.log(this.navBarHeight)
+			// console.log(this.navBarHeight)
 			// #endif
 			this.headerHeight = this.statusBarHeight + this.navBarHeight
 		}
