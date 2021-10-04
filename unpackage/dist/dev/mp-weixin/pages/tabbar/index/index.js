@@ -174,6 +174,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
+//
 
 // easycom将其精简为一步。 局部引入
 // 只要组件安装在项目的components目录下，并符合components/组件名称/组件名称.vue目录结构。
