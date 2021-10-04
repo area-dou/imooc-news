@@ -101,11 +101,8 @@ try {
     tab: function() {
       return __webpack_require__.e(/*! import() | components/tab/tab */ "components/tab/tab").then(__webpack_require__.bind(null, /*! @/components/tab/tab.vue */ 37))
     },
-    listScroll: function() {
-      return __webpack_require__.e(/*! import() | components/list-scroll/list-scroll */ "components/list-scroll/list-scroll").then(__webpack_require__.bind(null, /*! @/components/list-scroll/list-scroll.vue */ 68))
-    },
-    listCard: function() {
-      return __webpack_require__.e(/*! import() | components/list-card/list-card */ "components/list-card/list-card").then(__webpack_require__.bind(null, /*! @/components/list-card/list-card.vue */ 76))
+    list: function() {
+      return __webpack_require__.e(/*! import() | components/list/list */ "components/list/list").then(__webpack_require__.bind(null, /*! @/components/list/list.vue */ 84))
     }
   }
 } catch (e) {
@@ -176,6 +173,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
+//
 
 // easycom将其精简为一步。 局部引入
 // 只要组件安装在项目的components目录下，并符合components/组件名称/组件名称.vue目录结构。
@@ -187,19 +186,27 @@ var _default = {
   data: function data() {
     return {
       title: 'Hello',
-      tabList: [] };
+      tabList: [],
+      tabIndex: 0,
+      activeIndex: 0 };
 
   },
   onLoad: function onLoad() {
     this.getLabel();
   },
   methods: {
-    tabs: function tabs(data, index) {
-      console.log(data, index);
+    change: function change(current) {
+      this.tabIndex = current;
+      // console.log('当前current的值：',current)
+    },
+    tab: function tab(_ref) {var data = _ref.data,index = _ref.index;
+      // console.log('接收到的————数据  ', data)
+      // console.log('接收到的————索引  ', index)
+      this.activeIndex = index;
     },
     getLabel: function getLabel() {var _this = this;
       // 调用云函数方法
-      console.log(this.$api);
+      // console.log(this.$api)
       this.$api.get_label({
         name: 'get_label' }).
       then(function (res) {var

@@ -2,13 +2,15 @@
 	<view class="home">
 		<!-- 自定义导航栏组件 -->
 		<navbar></navbar>
-		<tab :list="tabList" @tab="tabs"></tab>
-
-		<list-scroll>
+		<tab :list="tabList" :tabIndex="tabIndex" @tab="tab"></tab>
+		<view class="home-list">
+			<list :tab="tabList" :activeIndex="activeIndex" @change="change"></list>
+		</view>
+		<!-- 		<list-scroll>
 			<list-card mode="base"></list-card>
 			<list-card mode="image"></list-card>
 			<list-card mode="column"></list-card>
-		</list-scroll>
+		</list-scroll> -->
 	</view>
 </template>
 
@@ -23,19 +25,27 @@
 		data() {
 			return {
 				title: 'Hello',
-				tabList: []
+				tabList: [],
+				tabIndex: 0,
+				activeIndex: 0
 			}
 		},
 		onLoad() {
 			this.getLabel()
 		},
 		methods: {
-			tabs(data, index) {
-				console.log(data, index)
+			change(current) {
+				this.tabIndex = current
+				// console.log('当前current的值：',current)
+			},
+			tab( {data, index} ) {
+				// console.log('接收到的————数据  ', data)
+				// console.log('接收到的————索引  ', index)
+				this.activeIndex = index
 			},
 			getLabel() {
 				// 调用云函数方法
-				console.log(this.$api)
+				// console.log(this.$api)
 				this.$api.get_label({
 					name: 'get_label',
 				}).then((res) => {
@@ -55,12 +65,18 @@
 	page {
 		height: 100%;
 		display: flex;
+
 		.home {
 			display: flex;
 			flex-direction: column;
 			flex: 1;
 			border: 1px solid red;
 			overflow: hidden;
+
+			.home-list {
+				flex: 1;
+				box-sizing: border-box;
+			}
 		}
 	}
 </style>

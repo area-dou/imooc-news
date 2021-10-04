@@ -9668,7 +9668,7 @@ var _module = {};
 
 requireApi.keys().forEach(function (key, index) {
   if (key === './index.js') return;
-  console.log(key);
+  // console.log(key)
   Object.assign(_module, requireApi(key));
 });var _default =
 
