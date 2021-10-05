@@ -1,6 +1,6 @@
 <template>
 	<view class="scroll">
-		<scroll-view class="list-scroll" scroll-y>
+		<scroll-view class="list-scroll" scroll-y @scrolltolower="loadmore">
 			<!-- 滚动标签内部的滚动元素建议使用一个父标签包裹，避免无法滚动或样式问题 -->
 			<view>
 				<slot></slot>
@@ -16,6 +16,11 @@
 			return {
 
 			};
+		},
+		methods:{
+			loadmore() {
+				this.$emit('loadmore')
+			}
 		}
 	}
 </script>

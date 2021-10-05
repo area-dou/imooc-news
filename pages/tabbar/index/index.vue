@@ -36,6 +36,7 @@
 		methods: {
 			change(current) {
 				this.tabIndex = current
+				this.activeIndex = current
 				// console.log('当前current的值：',current)
 			},
 			tab( {data, index} ) {
@@ -52,6 +53,10 @@
 					const {
 						data
 					} = res
+					// console.log('标签', data)
+					data.unshift({
+						name: '全部'
+					})
 					this.tabList = data
 					// console.log(this.tabList)
 				})

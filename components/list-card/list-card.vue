@@ -27,7 +27,8 @@
 					<text>{{item.title}}</text>
 				</view>
 				<view class="listcard-image">
-					<view v-if="index < 3" v-for="(item, index) in item.cover" :key="index" class="listcard-image__item">
+					<view v-if="index < 3" v-for="(item, index) in item.cover" :key="index"
+						class="listcard-image__item">
 						<image :src="item" mode="aspectFill"></image>
 					</view>
 				</view>
@@ -61,7 +62,6 @@
 					</view>
 					<view class="listcard-content__des-browse">{{item.browse_count}}浏览</view>
 				</view>
-
 			</view>
 		</view>
 	</view>
