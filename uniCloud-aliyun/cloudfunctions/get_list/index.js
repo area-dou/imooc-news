@@ -1,9 +1,11 @@
 'use strict';
 // 获取数据库引用
 const db = uniCloud.database()
+const $ = db.command.aggregate
 
 exports.main = async (event, context) => {
 	const {
+		user_id,
 		name,
 		page= 1, // 第几页 默认值
 		pageSize=10 // 默认值
@@ -14,11 +16,18 @@ exports.main = async (event, context) => {
 			classify: name
 		}
 	}
-
+	
+	const userinfo = await db.collection('user').doc(user_id).get()
+	const article_likes_ids = userinfo.data[0].article_likes_ids
+	
 	// 聚合：更精细化的去处理数据，求和、分组、指定哪些字段
 	const list = await db.collection('article')
 		// 获取数据库集合的聚合操作实例
 		.aggregate()
+		// 追加字段
+		.addFields({
+			is_like: $.in(['$_id',article_likes_ids])
+		})
 		// 根据条件过滤文档，并且把符合条件的文档传递给下一个流水线阶段。
 		.match(matchObj)
 		// 把指定的字段传递给下一个流水线，指定的字段可以是某个已经存在的字段，也可以是计算出来的新字段。 

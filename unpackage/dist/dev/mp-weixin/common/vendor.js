@@ -2268,7 +2268,7 @@ webpackContext.id = 13;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.get_list = exports.get_label = void 0;var _http = _interopRequireDefault(__webpack_require__(/*! ../http.js */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.update_like = exports.get_list = exports.get_label = void 0;var _http = _interopRequireDefault(__webpack_require__(/*! ../http.js */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 var get_label = function get_label(data) {
   return (0, _http.default)({
     url: 'get_label',
@@ -2282,6 +2282,13 @@ var get_list = function get_list(data) {
     data: data });
 
 };exports.get_list = get_list;
+
+var update_like = function update_like(data) {
+  return (0, _http.default)({
+    url: 'update_like',
+    data: data });
+
+};exports.update_like = update_like;
 
 /***/ }),
 
