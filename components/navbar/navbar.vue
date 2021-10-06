@@ -4,12 +4,30 @@
 			<!-- 状态栏 -->
 			<view :style="{height:statusBarHeight + 'px'}"></view>
 			<!-- 导航栏内容 -->
-			<view class="navbar-content" :style="{height: navBarHeight + 'px',width:windowWidth + 'px'}">
-				<view class="navbar-search" :style="{height: windowHeight + 'px'}">
+			<view class="navbar-content"
+			:class="{search:isSearch}"
+			:style="{height: navBarHeight + 'px',width:windowWidth + 'px'}"
+			@click.stop="open">
+				<!-- 返回箭头 -->
+				<view v-if="isSearch" class="navbar-content__search-icons" @click="back">
+					<uni-icons type="back" size="22" color="#fff"></uni-icons>
+				</view>
+				<!-- 非搜索页显示 -->
+				<view v-if="!isSearch" class="navbar-search" :style="{height: windowHeight + 'px'}">
 					<view class="navbar-search_icon">
 						<uni-icons type="search" size="16" color="#999"></uni-icons>
 					</view>
 					<view class="navbar-search_text">uni-app/vue</view>
+				</view>
+				<!-- 搜索页显示 -->
+				<view v-else class="navbar-search" :style="{height: windowHeight + 'px'}">
+					<input
+					class="navbar-search_text"
+					type="text" value=""
+					v-model="val"
+					placeholder="请输入你要搜索的内容"
+					@input="inputChange"
+					/>
 				</view>
 			</view>
 		</view>
@@ -20,6 +38,21 @@
 <script>
 	export default {
 		name: "navbar",
+		props: {
+			value: {
+				type: [String, Number],
+				default: ''
+			},
+			isSearch: {
+				type:Boolean,
+				default: false
+			}
+		},
+		watch:{
+			value(newVal) {
+				this.val = newVal
+			}
+		},
 		data() {
 			return {
 				// 状态栏高度
@@ -31,7 +64,9 @@
 				// 搜索栏高度
 				windowHeight: 30,
 				// 头部区域高度
-				headerHeight: 65
+				headerHeight: 65,
+				// 搜索内容
+				val: ''
 			};
 		},
 		created() {
@@ -54,6 +89,24 @@
 			// console.log(this.navBarHeight)
 			// #endif
 			this.headerHeight = this.statusBarHeight + this.navBarHeight
+		},
+		methods: {
+			back() {
+				// uni.navigateBack({})
+				uni.switchTab({
+					url:'/pages/tabbar/index/index'
+				})
+			},
+			open() {
+				if(this.isSearch) return
+				uni.navigateTo({
+					url:"/pages/home-search/home-search"
+				})
+			},
+			inputChange(e) {
+				const {value} = e.detail
+				this.$emit('input', value)
+			}
 		}
 	}
 </script>
@@ -90,11 +143,23 @@
 						margin-right: 10px;
 					}
 					.navbar-search_text {
-						font-size: 12px;
+						width: 100%;
+						font-size: 14px;
 						color: #999;
 					}
 				}
+				&.search {
+					padding-left: 0;
+					.navbar-content__search-icons {
+						margin-left: 10px;
+						margin-right: 10px;
+					}
+					.navbar-search {
+						border-radius: 5px;
+					}
+				}
 			}
+			
 		}
 	}
 </style>

@@ -19,3 +19,10 @@ export const update_like = (data) => {
 		data
 	})
 }
+
+export const get_search = (data) => {
+	return $http({
+		url: 'get_search',
+		data
+	})
+}
