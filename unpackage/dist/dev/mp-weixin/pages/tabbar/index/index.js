@@ -208,9 +208,7 @@ var _default = {
     getLabel: function getLabel() {var _this = this;
       // 调用云函数方法
       // console.log(this.$api)
-      this.$api.get_label({
-        name: 'get_label' }).
-      then(function (res) {var
+      this.$api.get_label().then(function (res) {var
 
         data =
         res.data;

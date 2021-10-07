@@ -2,5 +2,5 @@
 // 配置教程参考：https://uniapp.dcloud.net.cn/uniCloud/quickstart?id=runparam
 {
 	"user_id":"615b46ed618ecb000119e11a",
-	"name": "前端开发"
+	"type": "all"
 }

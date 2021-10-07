@@ -39,7 +39,7 @@
     title: 'loading...'
 })
 				this.$api.update_like({
-					user_id: '615b46ed618ecb000119e11b',
+					user_id: '615b46ed618ecb000119e11a',
 					article_id: this.item._id
 				}).then(res=> {
 					uni.hideLoading()

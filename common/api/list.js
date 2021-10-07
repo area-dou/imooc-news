@@ -26,3 +26,10 @@ export const get_search = (data) => {
 		data
 	})
 }
+
+export const update_label = (data) => {
+	return $http({
+		url: 'update_label',
+		data
+	})
+}

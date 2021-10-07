@@ -31,6 +31,12 @@
 			}
 		},
 		onLoad() {
+			uni.$on('labelChange',(res)=> {
+				this.tabList = []
+				this.tabIndex = 0
+				this.activeIndex = 0
+				this.getLabel()
+			})
 			this.getLabel()
 		},
 		methods: {
@@ -47,9 +53,7 @@
 			getLabel() {
 				// 调用云函数方法
 				// console.log(this.$api)
-				this.$api.get_label({
-					name: 'get_label',
-				}).then((res) => {
+				this.$api.get_label().then((res) => {
 					const {
 						data
 					} = res
