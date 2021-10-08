@@ -88,8 +88,21 @@
 		},
 		methods:{
 			open() {
+				const item =this.item
 				this.$emit('click', this.item)
-				console.log('打开详情页面')
+				console.log('打开详情页面',this.item)
+				const params = {
+					_id: item._id,
+					title: item.title,
+					author: item.author,
+					create_time: item.create_time,
+					thumbs_up_count: item.thumbs_up_count,
+					browse_count:item.browse_count
+				}
+				console.log(params)
+				uni.navigateTo({
+					url: "/pages/home-detail/home-detail?params=" + JSON.stringify(params),
+				})
 			}
 		}
 	}
