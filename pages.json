@@ -50,6 +50,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/detail-comments/detail-comments",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

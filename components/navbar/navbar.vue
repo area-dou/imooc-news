@@ -133,13 +133,9 @@
 					align-items: center;
 					padding: 0 10px;
 					width: 100%;
-					// height: 30px;
 					border-radius: 30px;
 					background-color: #FFFFFF;
 					.navbar-search_icon {
-						// width: 10px;
-						// height: 10px;
-						// border: 1px solid red;
 						margin-right: 10px;
 					}
 					.navbar-search_text {

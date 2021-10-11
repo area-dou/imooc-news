@@ -12,3 +12,4 @@
 1. [插件市场地址](https://ext.dcloud.net.cn/)
 2. [icon插件地址](https://ext.dcloud.net.cn/plugin?id=28)
 3. [uParse修复版-html富文本加载](https://ext.dcloud.net.cn/plugin?id=364)
+4. [uni-popup 弹出层](https://ext.dcloud.net.cn/plugin?id=329)

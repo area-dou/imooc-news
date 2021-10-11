@@ -47,6 +47,11 @@
 		// onLoad 页面 , created 组件
 		created() {
 			// 第一次渲染的时候, tab还没有被赋值,是空数组,在index.vue中的tabList还没有被云函数赋值
+			uni.$on('update_article',()=> {
+				this.listCatchData = {}
+				this.load = {}
+				this.getList(this.activeIndex)
+			})
 		},
 		methods: {
 			change(e) {
