@@ -36,7 +36,7 @@ export const update_label = (data) => {
 
 export const get_detail = (data) => {
 	return $http({
-		url:"get_detail",
+		url: "get_detail",
 		data
 	})
 }
@@ -78,6 +78,27 @@ export const get_follow = (data) => {
 export const get_author = (data) => {
 	return $http({
 		url: 'get_author',
+		data
+	})
+}
+
+export const get_user = (data) => {
+	return $http({
+		url: 'get_user',
+		data
+	})
+}
+
+export const get_my_article = (data) => {
+	return $http({
+		url: 'get_my_article',
+		data
+	})
+}
+
+export const update_feedback = (data) => {
+	return $http({
+		url: 'update_feedback',
 		data
 	})
 }

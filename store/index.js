@@ -8,10 +8,14 @@ const store = new Vuex.Store({
 	// 流程 调用vuex中action中的方法，然后commit（提交）mutations的方法去改变state里的数据
 	// 数据源
 	state: {
+		userinfo: uni.getStorageSync('USERINFO') || {},
 		historyLists: uni.getStorageSync("__history") || []
 	},
 	// 可以改变数据源的数据
 	mutations: {
+		SET_USER_INFO(state, userinfo) {
+			state.userinfo = userinfo
+		},
 		SET_HISTORY_LISTS(state, list) {
 			state.historyLists = list
 		},
@@ -21,17 +25,28 @@ const store = new Vuex.Store({
 	},
 	// 修改mutations 里的方法，处理异步 commit调用mutations里的方法
 	actions: {
-		set_history({commit, state}, history) {
+		set_userinfo({
+			commit
+		}, userinfo) {
+			uni.setStorageSync('USERINFO', userinfo)
+			commit('SET_USER_INFO', userinfo)
+		},
+		set_history({
+			commit,
+			state
+		}, history) {
 			let list = state.historyLists
 			list.unshift(history)
-			uni.setStorageSync("__history",list)
+			uni.setStorageSync("__history", list)
 			commit('SET_HISTORY_LISTS', list)
 		},
-		clearHistory({commit}) {
+		clearHistory({
+			commit
+		}) {
 			uni.removeStorageSync("__history")
 			commit('CLEAR_HISTORY')
 		}
 	}
-	
+
 })
 export default store
