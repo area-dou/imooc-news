@@ -95,6 +95,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   onLaunch: function onLaunch() {var _this = this;
     // console.log('App Launch')
     // 615b46ed618ecb000119e11a
+    // 请求接口,异步
     this.$api.get_user({
       user_id: '615b46ed618ecb000119e11a' }).
     then(function (res) {

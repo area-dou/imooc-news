@@ -15,6 +15,7 @@
 </template>
 
 <script>
+	import {mapState} from 'vuex'
 	// easycom将其精简为一步。 局部引入
 	// 只要组件安装在项目的components目录下，并符合components/组件名称/组件名称.vue目录结构。
 	// import navbar from '@/components/navbar/navbar.vue'
@@ -30,6 +31,14 @@
 				activeIndex: 0
 			}
 		},
+		computed: {
+			...mapState(['userinfo'])
+		},
+		watch:{
+			userinfo(newVal) {
+				this.getLabel()
+			}
+		},
 		onLoad() {
 			uni.$on('labelChange',(res)=> {
 				this.tabList = []
@@ -37,7 +46,6 @@
 				this.activeIndex = 0
 				this.getLabel()
 			})
-			this.getLabel()
 		},
 		methods: {
 			change(current) {
