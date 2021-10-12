@@ -13,6 +13,10 @@
 				default () {
 					return {}
 				}
+			},
+			types: {
+				type: String,
+				default: ''
 			}
 		},
 		data() {
@@ -32,23 +36,25 @@
 			likeTap() {
 				this.like = !this.like
 				this.setUpdateLikes()
-				console.log('收藏成功');
+				// console.log('收藏成功');
 			},
 			setUpdateLikes() {
 				uni.showLoading({
-    title: 'loading...'
-})
+					title: 'loading...'
+				})
 				this.$api.update_like({
 					user_id: '615b46ed618ecb000119e11a',
 					article_id: this.item._id
-				}).then(res=> {
+				}).then(res => {
 					uni.hideLoading()
 					uni.showToast({
-						title:this.like?'收藏成功':'取消收藏',
-						icon:this.like?'success':'error',
+						title: this.like ? '收藏成功' : '取消收藏',
+						icon: this.like ? 'success' : 'error',
 					})
-					console.log(res)
-				}).catch(()=> {
+					// 首页收藏 关联 关注页
+					uni.$emit('update_article', this.types)
+					// console.log(res)
+				}).catch(() => {
 					uni.hideLoading()
 				})
 			}

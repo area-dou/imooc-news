@@ -203,6 +203,7 @@
 					// console.log(this.formData.is_author_like)
 					this.formData.is_author_like = !this.formData.is_author_like
 					// console.log(res)
+					uni.$emit('update_author')
 					uni.showToast({
 						title:this.formData.is_author_like?'关注作者成功':'取消关注作者',
 						icon: 'none'
@@ -217,7 +218,7 @@
 				}).then(res => {
 					uni.hideLoading()
 					this.formData.is_like = !this.formData.is_like
-					uni.$emit('update_article')
+					uni.$emit('update_article','follow')
 					uni.showToast({
 						title: this.formData.is_like?'收藏成功':'取消收藏',
 						icon: 'none'

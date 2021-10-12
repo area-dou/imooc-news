@@ -47,10 +47,13 @@
 		// onLoad 页面 , created 组件
 		created() {
 			// 第一次渲染的时候, tab还没有被赋值,是空数组,在index.vue中的tabList还没有被云函数赋值
-			uni.$on('update_article',()=> {
-				this.listCatchData = {}
-				this.load = {}
-				this.getList(this.activeIndex)
+			uni.$on('update_article',(e)=> {
+				// console.log(e)
+				if (e === 'follow') {
+					this.listCatchData = {}
+					this.load = {}
+					this.getList(this.activeIndex)					
+				}
 			})
 		},
 		methods: {
@@ -91,7 +94,7 @@
 						this.$forceUpdate()
 						return
 					}
-					console.log(res)
+					// console.log(res)
 					// this.list = data
 					// this.listCatchData[current] = data
 					let oldList = this.listCatchData[current] || []

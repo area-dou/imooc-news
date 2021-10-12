@@ -10,14 +10,14 @@
 		}, {
 			"path": "pages/tabbar/follow/follow",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "关注",
 				"enablePullDownRefresh": false
 			}
 
 		}, {
 			"path": "pages/tabbar/my/my",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "我的",
 				"enablePullDownRefresh": false
 			}
 
