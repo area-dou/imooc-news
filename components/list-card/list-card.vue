@@ -94,7 +94,7 @@
 			open() {
 				const item =this.item
 				this.$emit('click', this.item)
-				console.log('打开详情页面',this.item)
+				// console.log('打开详情页面',this.item)
 				const params = {
 					_id: item._id,
 					title: item.title,

@@ -1,5 +1,10 @@
 {
-  "navigationBarTitleText": "",
+  "navigationBarTitleText": "关注",
   "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "list-scroll": "/components/list-scroll/list-scroll",
+    "uni-load-more": "/components/uni-load-more/uni-load-more",
+    "list-card": "/components/list-card/list-card",
+    "list-author": "/components/list-author/list-author"
+  }
 }

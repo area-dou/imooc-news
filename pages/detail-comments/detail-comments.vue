@@ -22,13 +22,13 @@
 		},
 		onLoad(query) {
 			this.article_id = query.id
-			console.log(query)
+			// console.log(query)
 			this.getComments()
 		},
 		onReachBottom() {
 			if(this.loading === 'noMore') return
 			this.page++
-			console.log('___上拉触底')
+			// console.log('___上拉触底')
 			this.getComments()
 		},
 		methods: {

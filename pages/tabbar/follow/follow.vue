@@ -72,7 +72,7 @@
 			},
 			getAuthor() {
 				this.$api.get_author().then(res=> {
-					console.log(res)
+					// console.log(res)
 					const { data } = res
 					this.authorLists = data
 				})

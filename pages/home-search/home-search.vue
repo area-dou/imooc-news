@@ -110,7 +110,7 @@
 					const {
 						data
 					} = res
-					console.log(res)
+					// console.log(res)
 					this.loading = false
 					this.searchList = data
 				}).catch(()=> {

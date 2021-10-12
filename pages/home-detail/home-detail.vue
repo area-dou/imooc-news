@@ -116,7 +116,7 @@
 			},
 			// 收藏
 			likeTap(article_id) {
-				console.log('收藏')
+				// console.log('收藏')
 				this.setUpdateLike(article_id)
 			},
 			// 关注
@@ -148,7 +148,7 @@
 				if(e.comments.reply_id) {
 					this.replyFormData.reply_id = e.comments.reply_id
 				}
-				console.log(this.replyFormData)
+				// console.log(this.replyFormData)
 				this.openComment()
 			},
 			setUpdateComment(content) {
@@ -160,7 +160,7 @@
 
 				uni.showLoading()
 				this.$api.update_comment(formdata).then((res)=> {
-					console.log(res)
+					// console.log(res)
 					uni.hideLoading()
 					uni.showToast({
 						title:'评论发布成功'
@@ -223,7 +223,7 @@
 						title: this.formData.is_like?'收藏成功':'取消收藏',
 						icon: 'none'
 					})
-					console.log('收藏成功')
+					// console.log('收藏成功')
 				})
 			},
 			// 点赞文章

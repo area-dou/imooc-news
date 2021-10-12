@@ -9,7 +9,7 @@
 "use strict";
 /* WEBPACK VAR INJECTION */(function(createApp) {__webpack_require__(/*! uni-pages */ 5);var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ 6));
 var _api = _interopRequireDefault(__webpack_require__(/*! ./common/api */ 12));
-var _store = _interopRequireDefault(__webpack_require__(/*! ./store */ 129));
+var _store = _interopRequireDefault(__webpack_require__(/*! ./store */ 21));
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
 _vue.default.config.productionTip = false;
@@ -92,14 +92,24 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 {
-  onLaunch: function onLaunch() {
-    console.log('App Launch');
+  onLaunch: function onLaunch() {var _this = this;
+    // console.log('App Launch')
+    // 615b46ed618ecb000119e11a
+    this.$api.get_user({
+      user_id: '615b46ed618ecb000119e11a' }).
+    then(function (res) {
+      // console.log(res)
+      var
+      data =
+      res.data;
+      _this.$store.dispatch('set_userinfo', data);
+    });
   },
   onShow: function onShow() {
-    console.log('App Show');
+    // console.log('App Show')
   },
   onHide: function onHide() {
-    console.log('App Hide');
+    // console.log('App Hide')
   } };exports.default = _default;
 
 /***/ }),

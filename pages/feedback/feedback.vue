@@ -58,8 +58,8 @@
 								})
 							}
 						})
-						console.log(this.imageLists)
-						console.log(res)
+						// console.log(this.imageLists)
+						// console.log(res)
 					}
 				})
 			},

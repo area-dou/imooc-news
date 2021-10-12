@@ -1,7 +1,7 @@
 <script>
 	export default {
 		onLaunch: function() {
-			console.log('App Launch')
+			// console.log('App Launch')
 			// 615b46ed618ecb000119e11a
 			this.$api.get_user({
 				user_id: '615b46ed618ecb000119e11a'
@@ -14,10 +14,10 @@
 			})
 		},
 		onShow: function() {
-			console.log('App Show')
+			// console.log('App Show')
 		},
 		onHide: function() {
-			console.log('App Hide')
+			// console.log('App Hide')
 		}
 	}
 </script>

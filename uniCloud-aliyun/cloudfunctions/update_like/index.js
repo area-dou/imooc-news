@@ -20,8 +20,7 @@ exports.main = async (event, context) => {
 	await db.collection('user').doc(user_id).update({
 		article_likes_ids: dbCmdFuns
 	})
-	//event为客户端上传的参数
-	console.log('event : ' + event)
+
 	//返回数据给客户端
 	return {
 		code: 200,

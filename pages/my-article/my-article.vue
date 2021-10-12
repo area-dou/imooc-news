@@ -18,7 +18,7 @@
 		methods: {
 			getMyArticle() {
 				this.$api.get_my_article().then(res => {
-					console.log(res)
+					// console.log(res)
 					const {data} = res
 					this.lists = data
 				})

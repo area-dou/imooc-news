@@ -87,7 +87,7 @@
 					newArrIds.push(item._id)
 				})
 				uni.showLoading()
-				console.log(newArrIds)
+				// console.log(newArrIds)
 				this.$api.update_label({
 					label:newArrIds
 				}).then((res)=> {
@@ -97,7 +97,7 @@
 						icon: 'success',
 					})
 					uni.$emit('labelChange')
-					console.log(res)
+					// console.log(res)
 				})
 			},
 			getLabel(){
@@ -105,7 +105,7 @@
 				this.$api.get_label({
 					type: 'all'
 				}).then((res)=> {
-					console.log(res)
+					// console.log(res)
 					const { data } = res
 					this.labelList = data.filter(item => item.current)
 					this.list = data.filter(item => !item.current)

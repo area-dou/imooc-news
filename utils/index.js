@@ -1,7 +1,7 @@
 // 时间格式化
 
 export const parseTime = (time) => {
-	console.log(time)
+	// console.log(time)
 	const format = '{y}-{m}-{d} {h}:{m}:{s}'
 	let date = null
 	if(typeof time === 'string') {
