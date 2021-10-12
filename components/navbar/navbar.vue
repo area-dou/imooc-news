@@ -2,7 +2,10 @@
 	<view class="navbar">
 		<view class="navbar-fixed">
 			<!-- 状态栏 -->
+			<!-- #ifndef MP-ALIPAY -->
 			<view :style="{height:statusBarHeight + 'px'}"></view>
+			<!-- #endif -->
+			
 			<!-- 导航栏内容 -->
 			<view class="navbar-content"
 			:class="{search:isSearch}"
@@ -31,7 +34,7 @@
 				</view>
 			</view>
 		</view>
-		<view :style="{height:headerHeight + 'px'}"></view>
+		<view :style="{height: statusBarHeight+navBarHeight+'px'}"></view>
 	</view>
 </template>
 
@@ -63,8 +66,6 @@
 				windowWidth: 375,
 				// 搜索栏高度
 				windowHeight: 30,
-				// 头部区域高度
-				headerHeight: 65,
 				// 搜索内容
 				val: ''
 			};
@@ -86,9 +87,10 @@
 			this.navBarHeight = (menuButtonInfo.bottom - info.statusBarHeight) + (menuButtonInfo.top - info.statusBarHeight)
 			this.windowWidth = menuButtonInfo.left
 			this.windowHeight = menuButtonInfo.bottom - menuButtonInfo.top
-			// console.log(this.navBarHeight)
 			// #endif
-			this.headerHeight = this.statusBarHeight + this.navBarHeight
+			// #ifdef MP-ALIPAY
+			this.statusBarHeight = 0
+			// #endif
 		},
 		methods: {
 			back() {

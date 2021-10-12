@@ -174,6 +174,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 var _default =
 {
   name: "navbar",
@@ -202,8 +205,6 @@ var _default =
       windowWidth: 375,
       // 搜索栏高度
       windowHeight: 30,
-      // 头部区域高度
-      headerHeight: 65,
       // 搜索内容
       val: '' };
 
@@ -225,9 +226,10 @@ var _default =
     this.navBarHeight = menuButtonInfo.bottom - info.statusBarHeight + (menuButtonInfo.top - info.statusBarHeight);
     this.windowWidth = menuButtonInfo.left;
     this.windowHeight = menuButtonInfo.bottom - menuButtonInfo.top;
-    // console.log(this.navBarHeight)
 
-    this.headerHeight = this.statusBarHeight + this.navBarHeight;
+
+
+
   },
   methods: {
     back: function back() {
